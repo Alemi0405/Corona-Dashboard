@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+
+  background-image: url("https://images.unsplash.com/photo-1584036561566-baf8f5f1b144");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+.container {
+  padding: 50px;
+  text-align: center;
+}
+h1 {
+  color: white;
+  font-size: 42px;
+  margin-bottom: 25px;
+}
+h2 {
+  color: white;
+  margin-top: 20px;
+}
+input {
+  width: 75%;
+  max-width: 500px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.suggestions {
+  width: 500px;
+  margin: auto;
+  background: rgba(144, 206, 245, 0.95);
+  color: rgb(11, 11, 15);
+  text-align: left;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+
+.suggestions div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions div:hover {
+  background: #1431c5;
+}
+
+/* CARDS GRID */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 400px);
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+.confirmed {
+  color: #1a1917;
+  background: linear-gradient(130deg, #0c36c1, #bbbeb9);
+}
+
+.active {
+  color: #101112;
+  background: linear-gradient(130deg, #b96607, #bbbeb9);
+}
+
+.recovered {
+  color: #0f0f0f;
+  background: linear-gradient(130deg, #308253, #bbbeb9);
+}
+
+.deaths {
+  color: #0c0c0c;
+  background: linear-gradient(130deg, #fa2f57, #bbbeb9);
+}
+/* CARD HOVER */
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 34px;
+  font-weight: bold;
+  color: black;
+
+  animation: numberPop 1s ease;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  input {
+    width: 90%;
+  }
+
+  .suggestions {
+    width: 90%;
+  }
+}
+
+@keyframes numberPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
